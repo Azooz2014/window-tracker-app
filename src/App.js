@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './style.css';
+import React from "react"
+import WindowTracker from "./WindowTracker"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export default function App() {
+    
+    const [show, setShow] = React.useState(true)
+    
+    const toggleShow = () => {
+        setShow(prevState => !prevState)
+        console.log(show)
+    }
+    
+    return (
+        <div className="container">
+            <button onClick={toggleShow}>
+                Toggle WindowTracker
+            </button>
+            {show ? <WindowTracker /> : ""}
+        </div>
+    )
+  }
